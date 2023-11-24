@@ -1,10 +1,7 @@
-import os
-
-from flask import flash, get_flashed_messages, render_template, redirect, url_for
-
+from flask import render_template
 from ml import app
 from ml.forms import FormKNN, FormSVC, FormMLP, FormRandomForest, FormDecisionTree
-
+from ml.iris import get_result
 
 @app.route('/', methods=['GET'])
 @app.route('/home', methods=['GET'])
@@ -26,13 +23,13 @@ def classifier(clf):
             form = FormRandomForest();
         case 'decision_tree':
             form = FormDecisionTree();
+
+    if form.validate_on_submit():
+        params = {};
+        for key in form.data:
+            if key in form.fields:
+                params[key] = form.data[key]
+        acc, macro_avg, cm_img = get_result(clf, **params)
+        return render_template("classifier.html", classifier = clf, form = form, acc = acc, macro_avg = macro_avg, cm_img = cm_img)
+
     return render_template("classifier.html", classifier = clf, form = form)
-
-
-    # if form.validate_on_submit():
-    #     params = form.data;
-    #     # pegar o texto
-    #     _post_text = _formNewPost.text.data
-
-
-    # return render_template("profile.html", user=current_user, form=_formNewPost, users=users)

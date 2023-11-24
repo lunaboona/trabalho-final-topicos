@@ -1,0 +1,73 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  margin: 0;
+  background-color: #f2f4f3;
+}
+
+* {
+  color: #08090a;
+}
+
+section {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+a, a:visited {
+  color: #6320ee;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 1.5rem 1rem;
+  margin: 0 -1rem;
+  list-style-type: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+li a {
+  font-size: 1.25rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+input {
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  padding: .5rem;
+  border: 2px solid #8075ff;
+  border-radius: .5rem;
+}
+
+label {
+  font-size: 1.25rem;
+  margin-bottom: .25rem;
+}
+
+input[type='submit'] {
+  font-size: 1.25rem;
+  margin-top: .25rem;
+  padding: .5rem;
+  border: 2px solid #8075ff;
+  border-radius: .5rem;
+  background-color: #6320ee;
+  cursor: pointer;
+  color: white;
+}

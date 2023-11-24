@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block body %}
+<section>
   <a href=" {{ url_for('home') }} " >
     < home
   </a>
+
   <h1>{{ classifier }}</h1>
-
-
 
   <form method="post" enctype="multipart/form-data">
     {{ form.csrf_token }}
@@ -21,7 +21,20 @@
     {{ form.btn }}
   </form>
 
+  {% if acc %}
+    <p>
+      <b>Acurácia:</b> {{ acc }}
+    </p>
+  {% endif %}
 
+  {% if macro_avg %}
+    <p>
+      <b>Macro Average F1-Score:</b> {{ macro_avg }}
+    </p>
+  {% endif %}
 
-
+  {% if cm_img %}
+    <img src="data:image/png;base64, {{ cm_img }}" />
+  {% endif %}
+</section>
 {% endblock %}
