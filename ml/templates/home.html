@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <h1>Classificadores</h1>
+
+  <ul>
+    {% for classifier in classifiers %}
+      <li>
+        <a href=" {{ url_for('classifier', clf=classifier) }} " >
+          {{ classifier }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

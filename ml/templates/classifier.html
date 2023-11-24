@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  {{ classifier }}
+{% endblock %}
+
+{% block body %}
+  <a href=" {{ url_for('home') }} " >
+    < home
+  </a>
+  <h1>{{ classifier }}</h1>
+
+
+
+  <form method="post" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    {% for field in form.fields %}
+        {{ form[field].label() }}
+        {{ form[field] }}
+    {% endfor %}
+    {{ form.btn }}
+  </form>
+
+
+
+
+{% endblock %}
